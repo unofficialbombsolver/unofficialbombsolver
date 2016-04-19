@@ -84,7 +84,7 @@ $( document ).ready(function() {
 
     $('#Button').on('show.bs.tab', function() {
         $("#button-panel").load("./htmlModules/ButtonModule.html", function(response, status, xhr) {
-            $('#refresh').click(function(){$('#Button').trigger( 'show.bs.tab');});
+            $('#refresh, #refresh1').click(function(){$('#Button').trigger( 'show.bs.tab');});
             //All button code goes here
             $('#moduleToggleDiv').show();
             $('input[name="color"]').click(function() {
