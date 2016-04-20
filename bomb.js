@@ -198,7 +198,9 @@ $( document ).ready(function() {
                 console.log(star);
                 var led = ($('.btn-primary[name=complicatedLed]').val());
                 var answer = complicatedWires(blue, red, star, led);
-                $("#complicatedAnswer").text(answer);
+                $('#complicatedAnswer').text("");
+                setTimeout(function() { $('#complicatedAnswer').text(answer)     },200);
+               // $("#complicatedAnswer").text(answer);
             })   
 
             $('#complicatedDone').click(function() {
@@ -248,6 +250,7 @@ $( document ).ready(function() {
         $("#sequences-panel").load("htmlModules/SequencesModule.html", function() {
             $('#refresh').click(function(){$('#Sequences').trigger('show.bs.tab');});
             //Sequences / ABC Wires code will go here
+            var allList = [];
             
             $('#ABCWiresDone').click(function() {
                 $('#SequencesModule').hide();
@@ -263,9 +266,19 @@ $( document ).ready(function() {
                 $("[name=ABCColor].active").removeClass('active');
                 $("[name=ABCLetter].active").removeClass('active');; 
                 var answer = ABCwires(color, letter);
-                $('#AbcAnswer').text(answer);
+                $('#AbcAnswer').text("");
+                setTimeout(function() { $('#AbcAnswer').text(answer)     },200);
+               // $('#AbcAnswer').text(answer).fadeIn(8000);
+               // $('#AbcAnswer').delay()
                 count = redocc+blackocc+blueocc-2;
                 $('#AbcCountlist').text(count);
+                allList.push(color + ": " + letter);
+                $('#blacklist').append('<p>'+color + ": " + letter+'</p></br>');
+                /*
+                for (i=0; i<allList.length; i++) {
+                    console.log(allList[i]);
+                 $('#blacklist').append('<p>'+allList[i]+'</p></br>');
+             }*/
             });
         });
     });
@@ -278,7 +291,7 @@ $( document ).ready(function() {
             var wordList = morseList();
             var typeList = [];
             var letterList = [];
-            $('#testtest').empty();
+             $('#testtest').empty();
             for (i=0; i<wordList.length; i++) {
                     $('#testtest').append('<input type="button" class="btn btn-default word" name="'+wordList[i][1]+'" value="'+wordList[i][0]+'";/>')
                    // <input type="button" class="btn btn-secondary" value="Black";/>
