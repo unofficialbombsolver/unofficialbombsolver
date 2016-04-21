@@ -45,3 +45,17 @@ function ABCwires(color, letter) {
     
 	}
 }
+
+function removeWire(color, letter) {
+	if (color == "blue") {
+		blueocc = blueocc -1
+
+	}
+	if (color == "red" ) {
+		redocc = redocc -1
+	}
+	if (color == "black") {
+		blackocc = blackocc-1
+	}
+
+}

@@ -268,17 +268,30 @@ $( document ).ready(function() {
                 var answer = ABCwires(color, letter);
                 $('#AbcAnswer').text("");
                 setTimeout(function() { $('#AbcAnswer').text(answer)     },200);
-               // $('#AbcAnswer').text(answer).fadeIn(8000);
-               // $('#AbcAnswer').delay()
+
                 count = redocc+blackocc+blueocc-2;
                 $('#AbcCountlist').text(count);
-                allList.push(color + ": " + letter);
-                $('#blacklist').append('<p>'+color + ": " + letter+'</p></br>');
-                /*
-                for (i=0; i<allList.length; i++) {
-                    console.log(allList[i]);
-                 $('#blacklist').append('<p>'+allList[i]+'</p></br>');
-             }*/
+                allList.push(color + letter);
+                $('.glyphicon').toggleClass("glyphicon glyphicon-remove", false);
+                $('#blacklist').append('<p>'+color + ": " + letter+'<a class="glyphicon glyphicon-remove" id="'+color+letter+'  "></a></p></br>');
+
+                $('.glyphicon').click(function(event) {
+                console.log("clicked");
+                id = event.target.id;
+                color = id.slice(0, -1);
+                letter = id[id.length-1];
+                console.log(color+letter);
+                removeWire(color, letter);
+                allList.pop();
+                newid = allList[allList.length-1];
+                $('#'+newid).addClass("glyphicon glyphicon-remove");
+                count = redocc+blackocc+blueocc-2;
+                $('#AbcCountlist').text(count); 
+                console.dir($(this).closest('p'));
+
+                $(this).closest("p").remove();
+
+            });
             });
         });
     });
