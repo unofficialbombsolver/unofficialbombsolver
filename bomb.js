@@ -287,9 +287,9 @@ $( document ).ready(function() {
                 $('#'+newid).addClass("glyphicon glyphicon-remove");
                 count = redocc+blackocc+blueocc-2;
                 $('#AbcCountlist').text(count); 
-                console.dir($(this).closest('p'));
-
                 $(this).closest("p").remove();
+                 $('#AbcAnswer').text("");
+
 
             });
             });
