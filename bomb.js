@@ -273,9 +273,9 @@ $( document ).ready(function() {
                 $('#AbcCountlist').text(count);
                 allList.push(color + letter);
                 $('.glyphicon').toggleClass("glyphicon glyphicon-remove", false);
-                $('#blacklist').append('<p>'+color + ": " + letter+'<a class="glyphicon glyphicon-remove" id="'+color+letter+'  "></a></p></br>');
+                $('#blacklist').append('<p>'+color + ": " + letter+'<a class="glyphicon glyphicon-remove xxx" id="'+color+letter+'  "></a></p></br>');
 
-                $('.glyphicon').click(function(event) {
+                $('.xxx').click(function(event) {
                 console.log("clicked");
                 id = event.target.id;
                 color = id.slice(0, -1);
@@ -399,6 +399,7 @@ $( document ).ready(function() {
             //Memory code will go here
             $('#moduleToggleDiv').show();
             var round = 1;
+            round = 1;
             var memoryList = getMemoryList();
             $("#mem1, #mem2, #mem3, #mem4").click(function(event) {
                 var number = $(this).attr('name');
