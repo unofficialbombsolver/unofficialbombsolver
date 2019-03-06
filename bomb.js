@@ -529,8 +529,8 @@ $( document ).ready(function() {
            
     });
     $('.btn-rachael').click(function(event) {
-        $(this).find('.btn').removeClass('btn-primary').addClass('btn-default');
-        $(event.target).addClass("btn-primary"); 
+        $(this).find('.btn').removeClass('btn-primary').removeClass('active').addClass('btn-default');
+        $(event.target).addClass("btn-primary").addClass("active"); 
 
     });
 
